@@ -22,4 +22,4 @@ for rota in INPUT:
     else:
         curr_pos = y
 
-print("The answer is: {answer}")
+print(f"The answer is: {answer}")
