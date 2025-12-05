@@ -1,24 +1,53 @@
-import math
-sum = 0
+
+#Part One
+ sum = 0
+answer = 0
 for item in INPUT:
     x = item.split(sep="-")
     bottom = int(x[0])
     top = int(x[1])
-    b_digits = math.floor(math.log10(bottom)) + 1
-    t_digits = math.floor(math.log10(top)) + 1
 
-    if b_digits == t_digits and t_digits % 2 != 0:
-        print(bottom)
+    while bottom <= top:
+        digits = math.floor(math.log10(bottom)) + 1
+        if digits % 2 == 0:
+            y = str(bottom)
+            z = y[len(y)//2:]
+            a = y[:len(y)//2]
+            if z == a:
+                answer += bottom
+                print(f"Invalid id: {bottom}")
+        bottom +=1
+
+print(f"The answer is: {answer}")
+
+#Part Two
+sum = 0
+answer = 0
+for item in TESTINPUT:
+    x = item.split(sep="-")
+    bottom = int(x[0])
+    top = int(x[1])
+    
+    while bottom <= top:
+        digits = math.floor(math.log10(bottom)) + 1
+        y = str(bottom)
+
+        for i in range(digits):
 
 
 
-    if abs(b_digits - t_digits) >= 2: print(bottom)
-""" 
-    if b_digits % 2 == 0 or t_digits % 2 == 0:
-        if b_digits % 2 != 0: 
-   
-    if math.log10(bottom) + math.log10(top) + 2 % 2 == 0:
-        while bottom <= top:
-            print(bottom)
-            bottom += 1 """
+            for j in range(digits):
+                if i == 0 and y[i] != y[j]: break;
+                
+
+
+        if digits % 2 == 0:
+            z = y[len(y)//2:]
+            a = y[:len(y)//2]
+            if z == a:
+                answer += bottom
+                print(f"Invalid id: {bottom}")
+        bottom +=1
+
+print(f"The answer is: {answer}")
 
